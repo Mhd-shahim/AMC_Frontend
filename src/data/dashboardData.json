@@ -1,0 +1,44 @@
+{
+  "stats": {
+    "totalProjects": 10,
+    "activeProjects": 6,
+    "expiredProjects": 2,
+    "upcomingRenewals": 2,
+    "totalEquipments": 292,
+    "totalUSB": 32
+  },
+  "recentActivity": [
+    { "id": 1, "action": "Training Completed", "project": "Video Analytics Platform", "user": "Sara Ahmed", "date": "2026-04-15T16:00:00Z", "type": "success" },
+    { "id": 2, "action": "Maintenance Scheduled", "project": "Intercom & PA System", "user": "Admin User", "date": "2026-04-01T09:00:00Z", "type": "info" },
+    { "id": 3, "action": "Project Created", "project": "Elevator Monitoring System", "user": "Sara Ahmed", "date": "2026-04-01T10:00:00Z", "type": "primary" },
+    { "id": 4, "action": "AI Module Deployed", "project": "Video Analytics Platform", "user": "John Smith", "date": "2026-03-01T14:00:00Z", "type": "success" },
+    { "id": 5, "action": "Firmware Updated", "project": "Intercom & PA System", "user": "Tech Team", "date": "2026-02-15T10:00:00Z", "type": "warning" },
+    { "id": 6, "action": "Site Survey Completed", "project": "Network Infrastructure AMC", "user": "Khalid Omar", "date": "2026-02-01T11:00:00Z", "type": "info" }
+  ],
+  "equipmentAlerts": [
+    { "id": 1, "project": "Access Control System", "type": "License Expiry", "date": "2026-01-20", "severity": "danger", "item": "USB License" },
+    { "id": 2, "project": "Access Control System", "type": "Contract Expiry", "date": "2026-03-15", "severity": "warning", "item": "AMC Contract" },
+    { "id": 3, "project": "Intercom & PA System", "type": "License Expiry", "date": "2026-05-20", "severity": "warning", "item": "USB License" },
+    { "id": 4, "project": "CCTV Surveillance System", "type": "License Expiry", "date": "2026-03-15", "severity": "danger", "item": "USB License" },
+    { "id": 5, "project": "CCTV Surveillance System", "type": "Contract Expiry", "date": "2026-06-01", "severity": "warning", "item": "AMC Contract" }
+  ],
+  "monthlyProjectData": [
+    { "month": "Jul", "active": 3, "expired": 0 },
+    { "month": "Aug", "active": 4, "expired": 0 },
+    { "month": "Sep", "active": 5, "expired": 0 },
+    { "month": "Oct", "active": 5, "expired": 0 },
+    { "month": "Nov", "active": 4, "expired": 1 },
+    { "month": "Dec", "active": 4, "expired": 2 },
+    { "month": "Jan", "active": 5, "expired": 2 },
+    { "month": "Feb", "active": 6, "expired": 2 },
+    { "month": "Mar", "active": 6, "expired": 2 },
+    { "month": "Apr", "active": 6, "expired": 2 },
+    { "month": "May", "active": 6, "expired": 2 },
+    { "month": "Jun", "active": 6, "expired": 2 }
+  ],
+  "statusDistribution": [
+    { "label": "Active", "value": 6 },
+    { "label": "Expired", "value": 2 },
+    { "label": "Upcoming", "value": 2 }
+  ]
+}

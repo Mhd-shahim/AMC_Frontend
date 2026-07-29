@@ -1,0 +1,219 @@
+[
+  {
+    "id": 1,
+    "siteName": "Al Bateen Tower",
+    "projectName": "CCTV Surveillance System",
+    "startDate": "2025-06-01",
+    "endDate": "2026-06-01",
+    "status": "active",
+    "location": { "lat": 24.4539, "lng": 54.3773 },
+    "equipment": {
+      "usb": { "count": 4, "licenseExpiry": "2026-03-15", "usbExpiry": "2026-06-01" },
+      "camera": { "count": 32, "cameraExpiry": "2026-06-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Admin User", "date": "2025-06-01T09:00:00Z", "details": "Initial project setup" },
+      { "action": "Equipment Added", "user": "John Smith", "date": "2025-06-05T14:30:00Z", "details": "Added 32 cameras and 4 USB dongles" },
+      { "action": "Status Updated", "user": "Admin User", "date": "2025-07-10T11:00:00Z", "details": "Project marked as Active" }
+    ],
+    "createdBy": "Admin User",
+    "createdDate": "2025-06-01T09:00:00Z",
+    "updatedBy": "John Smith",
+    "updatedDate": "2025-12-15T16:45:00Z"
+  },
+  {
+    "id": 2,
+    "siteName": "Marina Mall",
+    "projectName": "Access Control System",
+    "startDate": "2025-03-15",
+    "endDate": "2026-03-15",
+    "status": "active",
+    "location": { "lat": 24.4764, "lng": 54.3214 },
+    "equipment": {
+      "usb": { "count": 2, "licenseExpiry": "2026-01-20", "usbExpiry": "2026-03-15" },
+      "camera": { "count": 16, "cameraExpiry": "2026-03-15" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Sara Ahmed", "date": "2025-03-15T08:00:00Z", "details": "New access control project initiated" },
+      { "action": "Inspection Completed", "user": "Tech Team", "date": "2025-09-20T10:00:00Z", "details": "Quarterly maintenance inspection completed" },
+      { "action": "License Renewed", "user": "Admin User", "date": "2025-12-01T13:00:00Z", "details": "Software license renewed for Q1 2026" }
+    ],
+    "createdBy": "Sara Ahmed",
+    "createdDate": "2025-03-15T08:00:00Z",
+    "updatedBy": "Admin User",
+    "updatedDate": "2025-12-01T13:00:00Z"
+  },
+  {
+    "id": 3,
+    "siteName": "Reem Island Plaza",
+    "projectName": "Fire Alarm Integration",
+    "startDate": "2024-11-01",
+    "endDate": "2025-11-01",
+    "status": "expired",
+    "location": { "lat": 24.4981, "lng": 54.4094 },
+    "equipment": {
+      "usb": { "count": 1, "licenseExpiry": "2025-08-01", "usbExpiry": "2025-11-01" },
+      "camera": { "count": 8, "cameraExpiry": "2025-11-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Admin User", "date": "2024-11-01T09:00:00Z", "details": "Fire alarm system AMC started" },
+      { "action": "Maintenance Performed", "user": "Khalid Omar", "date": "2025-05-15T10:00:00Z", "details": "Semi-annual maintenance check completed" },
+      { "action": "Contract Expired", "user": "System", "date": "2025-11-01T00:00:00Z", "details": "AMC contract has expired" }
+    ],
+    "createdBy": "Admin User",
+    "createdDate": "2024-11-01T09:00:00Z",
+    "updatedBy": "System",
+    "updatedDate": "2025-11-01T00:00:00Z"
+  },
+  {
+    "id": 4,
+    "siteName": "Saadiyat Cultural District",
+    "projectName": "Smart Building Automation",
+    "startDate": "2025-09-01",
+    "endDate": "2026-09-01",
+    "status": "active",
+    "location": { "lat": 24.5355, "lng": 54.4306 },
+    "equipment": {
+      "usb": { "count": 6, "licenseExpiry": "2026-07-01", "usbExpiry": "2026-09-01" },
+      "camera": { "count": 48, "cameraExpiry": "2026-09-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Sara Ahmed", "date": "2025-09-01T08:30:00Z", "details": "Smart building automation AMC initiated" },
+      { "action": "Equipment Installed", "user": "Tech Team", "date": "2025-09-15T14:00:00Z", "details": "48 IP cameras and 6 USB controllers installed" },
+      { "action": "System Configured", "user": "John Smith", "date": "2025-10-01T09:00:00Z", "details": "Building automation software configured and tested" }
+    ],
+    "createdBy": "Sara Ahmed",
+    "createdDate": "2025-09-01T08:30:00Z",
+    "updatedBy": "John Smith",
+    "updatedDate": "2025-10-01T09:00:00Z"
+  },
+  {
+    "id": 5,
+    "siteName": "Yas Island Business Park",
+    "projectName": "Network Infrastructure AMC",
+    "startDate": "2026-01-15",
+    "endDate": "2027-01-15",
+    "status": "active",
+    "location": { "lat": 24.4883, "lng": 54.6025 },
+    "equipment": {
+      "usb": { "count": 3, "licenseExpiry": "2026-11-15", "usbExpiry": "2027-01-15" },
+      "camera": { "count": 24, "cameraExpiry": "2027-01-15" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Admin User", "date": "2026-01-15T10:00:00Z", "details": "Network infrastructure AMC contract created" },
+      { "action": "Site Survey Completed", "user": "Khalid Omar", "date": "2026-02-01T11:00:00Z", "details": "Initial site survey and documentation completed" }
+    ],
+    "createdBy": "Admin User",
+    "createdDate": "2026-01-15T10:00:00Z",
+    "updatedBy": "Khalid Omar",
+    "updatedDate": "2026-02-01T11:00:00Z"
+  },
+  {
+    "id": 6,
+    "siteName": "Corniche Road Offices",
+    "projectName": "Intercom & PA System",
+    "startDate": "2025-08-01",
+    "endDate": "2026-08-01",
+    "status": "active",
+    "location": { "lat": 24.4528, "lng": 54.3693 },
+    "equipment": {
+      "usb": { "count": 2, "licenseExpiry": "2026-05-20", "usbExpiry": "2026-08-01" },
+      "camera": { "count": 12, "cameraExpiry": "2026-08-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "John Smith", "date": "2025-08-01T09:00:00Z", "details": "Intercom and PA system AMC created" },
+      { "action": "Quarterly Review", "user": "Sara Ahmed", "date": "2025-11-01T15:00:00Z", "details": "Q3 quarterly review completed - all systems operational" },
+      { "action": "Firmware Updated", "user": "Tech Team", "date": "2026-02-15T10:00:00Z", "details": "Firmware update applied to all intercom units" },
+      { "action": "Maintenance Scheduled", "user": "Admin User", "date": "2026-04-01T09:00:00Z", "details": "Next quarterly maintenance scheduled for May 2026" }
+    ],
+    "createdBy": "John Smith",
+    "createdDate": "2025-08-01T09:00:00Z",
+    "updatedBy": "Admin User",
+    "updatedDate": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": 7,
+    "siteName": "Khalidiyah Mall",
+    "projectName": "Elevator Monitoring System",
+    "startDate": "2026-04-01",
+    "endDate": "2027-04-01",
+    "status": "upcoming",
+    "location": { "lat": 24.4668, "lng": 54.3533 },
+    "equipment": {
+      "usb": { "count": 2, "licenseExpiry": "2027-02-01", "usbExpiry": "2027-04-01" },
+      "camera": { "count": 20, "cameraExpiry": "2027-04-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Sara Ahmed", "date": "2026-04-01T10:00:00Z", "details": "Elevator monitoring AMC contract signed" }
+    ],
+    "createdBy": "Sara Ahmed",
+    "createdDate": "2026-04-01T10:00:00Z",
+    "updatedBy": "Sara Ahmed",
+    "updatedDate": "2026-04-01T10:00:00Z"
+  },
+  {
+    "id": 8,
+    "siteName": "Airport Free Zone",
+    "projectName": "Perimeter Security System",
+    "startDate": "2024-12-01",
+    "endDate": "2025-12-01",
+    "status": "expired",
+    "location": { "lat": 24.4330, "lng": 54.6511 },
+    "equipment": {
+      "usb": { "count": 5, "licenseExpiry": "2025-09-01", "usbExpiry": "2025-12-01" },
+      "camera": { "count": 64, "cameraExpiry": "2025-12-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Admin User", "date": "2024-12-01T08:00:00Z", "details": "Perimeter security AMC initiated" },
+      { "action": "Major Upgrade", "user": "Tech Team", "date": "2025-03-15T12:00:00Z", "details": "Upgraded 20 cameras to 4K resolution" },
+      { "action": "Emergency Repair", "user": "Khalid Omar", "date": "2025-07-22T06:30:00Z", "details": "Emergency repair on sector 3 cameras after storm damage" },
+      { "action": "Contract Expired", "user": "System", "date": "2025-12-01T00:00:00Z", "details": "AMC contract expired - renewal pending" }
+    ],
+    "createdBy": "Admin User",
+    "createdDate": "2024-12-01T08:00:00Z",
+    "updatedBy": "System",
+    "updatedDate": "2025-12-01T00:00:00Z"
+  },
+  {
+    "id": 9,
+    "siteName": "Downtown Abu Dhabi Tower",
+    "projectName": "Video Analytics Platform",
+    "startDate": "2026-02-01",
+    "endDate": "2027-02-01",
+    "status": "active",
+    "location": { "lat": 24.4870, "lng": 54.3560 },
+    "equipment": {
+      "usb": { "count": 4, "licenseExpiry": "2026-12-01", "usbExpiry": "2027-02-01" },
+      "camera": { "count": 40, "cameraExpiry": "2027-02-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Admin User", "date": "2026-02-01T09:00:00Z", "details": "Video analytics platform AMC started" },
+      { "action": "AI Module Deployed", "user": "John Smith", "date": "2026-03-01T14:00:00Z", "details": "Deployed facial recognition and crowd analytics modules" },
+      { "action": "Training Completed", "user": "Sara Ahmed", "date": "2026-04-15T16:00:00Z", "details": "Staff training on video analytics dashboard completed" }
+    ],
+    "createdBy": "Admin User",
+    "createdDate": "2026-02-01T09:00:00Z",
+    "updatedBy": "Sara Ahmed",
+    "updatedDate": "2026-04-15T16:00:00Z"
+  },
+  {
+    "id": 10,
+    "siteName": "Mussafah Industrial Area",
+    "projectName": "Warehouse Security System",
+    "startDate": "2026-06-01",
+    "endDate": "2027-06-01",
+    "status": "upcoming",
+    "location": { "lat": 24.3500, "lng": 54.5000 },
+    "equipment": {
+      "usb": { "count": 3, "licenseExpiry": "2027-04-01", "usbExpiry": "2027-06-01" },
+      "camera": { "count": 28, "cameraExpiry": "2027-06-01" }
+    },
+    "auditLogs": [
+      { "action": "Project Created", "user": "Khalid Omar", "date": "2026-05-10T09:00:00Z", "details": "Warehouse security system AMC contract created" }
+    ],
+    "createdBy": "Khalid Omar",
+    "createdDate": "2026-05-10T09:00:00Z",
+    "updatedBy": "Khalid Omar",
+    "updatedDate": "2026-05-10T09:00:00Z"
+  }
+]
