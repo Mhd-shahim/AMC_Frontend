@@ -5,7 +5,8 @@ import { Row, Col, Card, Table } from 'react-bootstrap'
 import axios from 'axios'
 import * as Yup from 'yup'
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api'
+// const API_BASE_URL = 'http://127.0.0.1:8000/api'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const emptyContractor = {
   company_name: '',
@@ -303,7 +304,7 @@ export default function ContractorsPage() {
 
   const fetchContractors = useCallback(async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/contractors`)
+      const response = await axios.get(`${API_BASE_URL}/api/contractors`)
       setContractors(normalizeContractorList(response.data))
     } catch (error) {
       console.error('Error fetching contractors:', error)
@@ -343,7 +344,7 @@ export default function ContractorsPage() {
   const createContractor = async (values) => {
     values.is_active = true
     try {
-      await axios.post(`${API_BASE_URL}/create-contractor/`, values, {
+      await axios.post(`${API_BASE_URL}/api/create-contractor/`, values, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -385,7 +386,7 @@ export default function ContractorsPage() {
     }
 
     try {
-      await axios.delete(`${API_BASE_URL}/delete-contractor/${contractorId}/`)
+      await axios.delete(`${API_BASE_URL}/api/delete-contractor/${contractorId}/`)
 
       toast.success('Contractor deleted successfully')
       await fetchContractors()
