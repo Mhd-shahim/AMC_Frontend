@@ -1053,6 +1053,7 @@ const Pagination = ({ currentPage, totalPages, totalItems, pageSize, onPageChang
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function ProjectsPage() {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
@@ -1074,7 +1075,7 @@ export default function ProjectsPage() {
 
   async function fetchUsers(){
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/users')
+      const response = await axios.get(`${API_BASE_URL}/api/users`)
       // Handle the response
       const engineerUsers = []
       for (const user of response.data) {
@@ -1091,7 +1092,7 @@ export default function ProjectsPage() {
 
   const fetchSites = useCallback(async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/sites')
+      const response = await axios.get(`${API_BASE_URL}/api/sites`)
       setSites(response.data)
     } catch (error) {
       console.error('Error fetching sites:', error)
@@ -1100,6 +1101,7 @@ export default function ProjectsPage() {
   }, [])
 
   useEffect(() => {
+    console.log("Base URL:", API_BASE_URL); // Log the base URL to verify it's correct
     const timer = setTimeout(() => {
       fetchSites();
       fetchUsers();
@@ -1126,7 +1128,7 @@ export default function ProjectsPage() {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/site-details/${siteId}/`
+        `${API_BASE_URL}/api/site-details/${siteId}/`
       );
 
       return mergeSiteDetails(site, response.data);
@@ -1176,7 +1178,7 @@ export default function ProjectsPage() {
 
     console.log('payload to be passed', siteData)
     try {
-      await axios.post('http://127.0.0.1:8000/api/create-site/', siteData,
+      await axios.post(`${API_BASE_URL}/api/create-site/`, siteData,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -1211,7 +1213,7 @@ export default function ProjectsPage() {
     const siteData = buildSitePayload(values, equipmentItems, contractEnabled)
 
     try {
-      await axios.patch(`http://127.0.0.1:8000/api/edit-site/${siteId}/`, siteData, {
+      await axios.patch(`${API_BASE_URL}/api/edit-site/${siteId}/`, siteData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -1262,7 +1264,7 @@ export default function ProjectsPage() {
   const handleDelete = async (siteId) => {
 
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/delete-site/${siteId}/`);
+      await axios.delete(`${API_BASE_URL}/api/delete-site/${siteId}/`);
 
       toast.success("Site deleted successfully");
       fetchSites(); // refresh table/list after delete

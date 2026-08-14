@@ -5,7 +5,7 @@ import { Row, Col, Card, Table } from 'react-bootstrap'
 import axios from 'axios'
 import * as Yup from 'yup'
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const roleOptions = [
   { value: 'admin', label: 'Admin' },
@@ -374,7 +374,7 @@ export default function UsersPage() {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/users`)
+      const response = await axios.get(`${API_BASE_URL}/api/users`)
       setUsers(normalizeUserList(response.data))
     } catch (error) {
       console.error('Error fetching users:', error)
@@ -441,7 +441,7 @@ export default function UsersPage() {
 
   const createUser = async (values) => {
     try {
-      await axios.post(`${API_BASE_URL}/create-user/`, buildUserPayload(values, false), {
+      await axios.post(`${API_BASE_URL}/api/create-user/`, buildUserPayload(values, false), {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -465,7 +465,7 @@ export default function UsersPage() {
     }
 
     try {
-      await axios.put(`${API_BASE_URL}/edit-user/${userId}/`, buildUserPayload(values, true), {
+      await axios.put(`${API_BASE_URL}/api/edit-user/${userId}/`, buildUserPayload(values, true), {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -506,7 +506,7 @@ export default function UsersPage() {
     }
 
     try {
-      await axios.delete(`${API_BASE_URL}/delete-user/${userId}/`)
+      await axios.delete(`${API_BASE_URL}/api/delete-user/${userId}/`)
 
       toast.success('User deleted successfully')
       await fetchUsers()

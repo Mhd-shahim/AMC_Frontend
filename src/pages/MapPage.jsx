@@ -5,7 +5,8 @@ import { SkeletonCard } from '../components/Loader'
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import L from 'leaflet'
 
-const AMC_STATUS_URL = 'http://127.0.0.1:8000/api/sites/amc-status/'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const AMC_STATUS_URL = `${API_BASE_URL}/api/sites/amc-status/`
 const MAP_CENTER = [25.2048, 55.2708]
 const DEFAULT_ZOOM = 11
 

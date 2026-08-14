@@ -361,6 +361,7 @@ const UsbFields = ({ data, onChange, errors = {} }) => (
 const fieldComponents = { Server: ServerFields, Camera: CameraFields, USB: UsbFields }
 
 export default function SiteDetailsPage() {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const { siteId } = useParams()
   const navigate = useNavigate()
   const location = useLocation()
@@ -595,7 +596,7 @@ const getEquipmentApiErrorMessage = (error) => {
 
 async function createEquipments(equipmentArray) {
   const response = await axios.post(
-    "http://127.0.0.1:8000/api/create-equipment/",
+    `${API_BASE_URL}/api/create-equipment/`,
     equipmentArray,
     {
       headers: {
@@ -633,7 +634,7 @@ const confirmDeleteEquipment = async () => {
 
   try {
     await axios.delete(
-      `http://127.0.0.1:8000/api/delete-equipment/${equipmentId}/`
+      `${API_BASE_URL}/api/delete-equipment/${equipmentId}/`
     )
 
     toast.success('Equipment deleted successfully')
@@ -703,7 +704,7 @@ const saveAttachment = () => {
 
   const loadSiteDetails = useCallback(async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/site-details/${siteId}/`)
+      const response = await axios.get(`${API_BASE_URL}/api/site-details/${siteId}/`)
       setSite(current => mergeSiteDetails(current ?? {}, response.data))
     } catch (error) {
       console.error('Error loading site details:', error)

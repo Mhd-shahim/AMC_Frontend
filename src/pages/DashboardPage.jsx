@@ -7,6 +7,7 @@ import dashboardData from '../data/dashboardData.json'
 import projects from '../data/projects.json'
 
 export default function DashboardPage() {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const [loading, setLoading] = useState(true)
   const data = dashboardData
 
