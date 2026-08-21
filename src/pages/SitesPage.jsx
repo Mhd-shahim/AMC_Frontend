@@ -1228,6 +1228,7 @@ export default function ProjectsPage() {
         error.response?.data?.equipment_sl_no?.[0] ||
         error.response?.data?.contract_ref_no?.[0] ||
         error.response?.data?.error ||
+        error.response?.data?.detail ||
         'Failed to update site'
 
       console.error('Error updating site:', error)
@@ -1273,6 +1274,7 @@ export default function ProjectsPage() {
     } catch (error) {
       const message =
         error.response?.data?.error ||
+        error.response?.data?.detail ||
         "Failed to delete site";
 
       console.error("Error deleting site:", error);

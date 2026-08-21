@@ -5,13 +5,16 @@ import StatusBadge from '../components/StatusBadge'
 import { SkeletonCard } from '../components/Loader'
 import dashboardData from '../data/dashboardData.json'
 import projects from '../data/projects.json'
+import axios from 'axios'
 
 export default function DashboardPage() {
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const [loading, setLoading] = useState(true)
+  const token = localStorage.getItem("access");
+
+  const [loading, setLoading] = useState(false)
   const data = dashboardData
 
-  useEffect(() => { setTimeout(() => setLoading(false), 800) }, [])
+  // useEffect(() => { setTimeout(() => setLoading(false), 800) }, [])
 
   const formatDate = (d) => new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 
@@ -46,6 +49,57 @@ export default function DashboardPage() {
     </div>
   )
 
+  const getDashboardData = async () => {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/api/dashboard/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      console.log("Axios error:", error);
+      console.log("code:", error.code);
+      console.log("message:", error.message);
+      console.log("request:", error.request);
+      console.log("response:", error.response);
+      console.log("config:", error.config);
+      throw error;
+    }
+  };
+
+  const getExpiredEquipment = async () => {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/api/expired-equipment/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      console.log("Axios error:", error);
+      console.log("code:", error.code);
+      console.log("message:", error.message);
+      console.log("request:", error.request);
+      console.log("response:", error.response);
+      console.log("config:", error.config);
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    getDashboardData();
+    getExpiredEquipment();
+  }, []);
+
   return (
     <div className="fade-in">
       <div className="page-header">
@@ -58,15 +112,16 @@ export default function DashboardPage() {
         <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-folder" value={data.stats.totalProjects} label="Total Projects" variant="primary" /></div>
         <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-circle-check" value={data.stats.activeProjects} label="Active Projects" variant="success" /></div>
         <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-circle-xmark" value={data.stats.expiredProjects} label="Expired Projects" variant="danger" /></div>
-        <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-clock-rotate-left" value={data.stats.upcomingRenewals} label="Upcoming Renewals" variant="warning" /></div>
-        <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-video" value={data.stats.totalEquipments} label="Total Equipments" variant="info" /></div>
+        {/* <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-clock-rotate-left" value={data.stats.upcomingRenewals} label="Upcoming Renewals" variant="warning" /></div> */}
+        <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-video" value={data.stats.totalCameras} label="Total Cameras" variant="info" /></div>
+        <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-server" value={data.stats.totalServers} label="Total Servers" variant="info" /></div>
         <div className="col-xl-2 col-md-4 col-6"><DashboardCard icon="fa-solid fa-usb" value={data.stats.totalUSB} label="USB Devices" variant="primary" /></div>
       </div>
 
       {/* Charts Row */}
       <div className="row g-3 mb-4">
         <div className="col-lg-8">
-          <div className="dash-card">
+          <div className="dash-card mb-4">
             <div className="card-header-custom">
               <h6><i className="fa-solid fa-chart-column me-2 text-primary"></i>Project Overview</h6>
               <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Last 12 months</span>
@@ -75,27 +130,11 @@ export default function DashboardPage() {
               <Chart options={barOptions} series={barSeries} type="bar" height={300} />
             </div>
           </div>
-        </div>
-        <div className="col-lg-4">
-          <div className="dash-card">
-            <div className="card-header-custom">
-              <h6><i className="fa-solid fa-chart-pie me-2 text-primary"></i>AMC Status</h6>
-            </div>
-            <div className="card-body-custom">
-              <Chart options={donutOptions} series={donutSeries} type="donut" height={300} />
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Bottom Row */}
-      <div className="row g-3 mb-4">
-        {/* Recent Projects Table */}
-        <div className="col-lg-8">
           <div className="dash-card">
             <div className="card-header-custom">
               <h6><i className="fa-solid fa-list me-2 text-primary"></i>Recent Projects</h6>
-              <a href="/projects" className="btn-outline-custom" style={{ padding: '6px 14px', fontSize: 12 }}>View All</a>
+              <a href="/sites" className="btn-outline-custom" style={{ padding: '6px 14px', fontSize: 12 }}>View All</a>
             </div>
             <div className="card-body-custom p-0">
               <div className="table-container">
@@ -116,8 +155,18 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
+        {/* <div className="col-lg-4">
+          <div className="dash-card">
+            <div className="card-header-custom">
+              <h6><i className="fa-solid fa-chart-pie me-2 text-primary"></i>AMC Status</h6>
+            </div>
+            <div className="card-body-custom">
+              <Chart options={donutOptions} series={donutSeries} type="donut" height={300} />
+            </div>
+          </div>
+        </div> */}
         {/* Alerts & Activity */}
         <div className="col-lg-4">
           <div className="dash-card mb-3">
@@ -137,25 +186,6 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="dash-card">
-            <div className="card-header-custom">
-              <h6><i className="fa-solid fa-timeline me-2 text-primary"></i>Recent Activity</h6>
-            </div>
-            <div className="card-body-custom">
-              <div className="audit-timeline">
-                {data.recentActivity.slice(0, 4).map(a => (
-                  <div className="timeline-item" key={a.id}>
-                    <div className="timeline-dot"></div>
-                    <div className="timeline-content">
-                      <h6>{a.action}</h6>
-                      <p>{a.project}</p>
-                      <small>{a.user} &middot; {formatDate(a.date)}</small>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
